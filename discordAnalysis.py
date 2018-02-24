@@ -90,7 +90,7 @@ pattern = re.compile(regex, re.IGNORECASE)
 data = DiscordData('dht.txt')
 
 quoted = input('Quote lines? (Y/n): ')
-if(quoted == 'Y' || quoted == 'y'):
+if(quoted == 'Y' or quoted == 'y'):
     data.match_report_quoted(pattern)
 else:
     data.match_report(pattern)
