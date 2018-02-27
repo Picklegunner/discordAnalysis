@@ -28,8 +28,9 @@ class User():
         for message in self.messages:
             length = len(regex.findall(message))
             sum += length
-            unique_sum += 1 if length != 0 else 0
-            quotes.append(message)
+            if length != 0:
+                unique_sum += 1
+                quotes.append(message)
         return (sum, unique_sum, quotes)
 
     def __lt__(self, other):
@@ -107,7 +108,7 @@ class DiscordData():
                 max_val = self.max_value + 1,
                 percent_server=(100*results[user.name][1]/total_matches) if total_matches != 0 else 0.0))
             if quoted:
-                for quote in result[user.name][3]:
+                for quote in results[user.name][3]:
                     print('>>> ' + quote)
 
 
